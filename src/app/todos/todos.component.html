@@ -1,0 +1,27 @@
+<div class="filter" *ngIf="todosService.todos.length; else null">
+  <input type="text" placeholder="Поиск..." [(ngModel)]="searchString">
+</div>
+<hr>
+<ul *ngIf="todosService.todos.length; else noTodos">
+  <li
+    *ngFor="let todo of todosService.todos | todosFilter: searchString; let i = index"
+    [class.done]="todo.completed"
+    (click)="onChange(todo.id)"
+  >
+    <span>
+      <input type="checkbox" [checked]="todo.completed">
+      <strong>{{todo.id}}</strong>{{todo.title}}
+    </span>
+
+    <small>{{todo.date | date: 'dd.MM.yy, HH:mm'}}</small>
+
+    <button class="rm" (click)="removeTodo(todo.id)">&times;</button>
+  </li>
+</ul>
+<div class="clear" *ngIf="todosService.todos.length; else null">
+  <button (click)="removeCompleted()">Удалить выполненные</button>
+</div>
+
+<ng-template #noTodos>
+  <p class="no-todos">Список пуст</p>
+</ng-template>

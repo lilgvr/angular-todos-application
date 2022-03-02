@@ -1,0 +1,121 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+
+  li {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color .25s linear;
+
+    input {
+      margin-right: 1rem;
+    }
+
+    input:hover {
+      cursor: pointer;
+    }
+
+    strong {
+      margin-right: 1rem;
+    }
+
+    small {
+      position: absolute;
+      right: 40px;
+      bottom: 5px;
+      font-size: .8rem;
+      margin-right: .5rem;
+    }
+  }
+
+  li.done {
+    background-color: #65b122;
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+}
+
+.rm {
+  $color: red;
+  border-radius: 50%;
+  background: $color;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  width: 20px;
+  height: 20px;
+  transition: .3s all;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background: darken($color, 20%);
+  }
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  margin: 0 .5rem;
+  height: 30px;
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    padding: 0 .5rem;
+  }
+}
+
+.clear {
+  display: flex;
+  align-items: center;
+  margin: 0 .5rem;
+  height: 30px;
+
+  button {
+    $color: #eee;
+    $transitionTime: .3s;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background: $color;
+    cursor: pointer;
+    margin: 0 .5rem;
+    transition: background-color $transitionTime linear, color $transitionTime linear;
+    transition-delay: .05s;
+
+    &:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+.no-todos {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+hr {
+  margin: 1rem 0;
+  border: 1px solid black;
+}
